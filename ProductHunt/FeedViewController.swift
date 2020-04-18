@@ -11,15 +11,28 @@ import UIKit
 class FeedViewController: UIViewController {
 
     @IBOutlet weak var feedTableView: UITableView!
-    var mockData: [Post] = []
+    
+    var posts: [Post] = [] {
+       didSet {
+           feedTableView.reloadData()
+       }
+    }
+
+    var networkManager = NetworkManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         feedTableView.dataSource = self
         feedTableView.delegate = self
-        // Do any additional setup after loading the view.
+        updateFeed()
     }
-
+    
+    func updateFeed() {
+        // call our network manager's getPosts method to update our feed with posts
+         networkManager.getPosts() { result in
+             self.posts = result
+         }
+    }
 
 }
 
@@ -27,20 +40,17 @@ class FeedViewController: UIViewController {
 extension FeedViewController: UITableViewDataSource {
    /// Determines how many cells will be shown on the table view.
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-     return mockData.count
+    // return the actual number of posts we receive
+    return posts.count
    }
 
-   /// Creates and configures each cell.
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-     // Grab an available cell
-     let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! PostTableViewCell
+    let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! PostTableViewCell
 
-     // Grab a post from our "data"
-     let post = mockData[indexPath.row]
-     // Assign a post to that cell
-     cell.post = post
-
-     return cell
+    // retrieve from the actual posts, and not mock data
+    let post = posts[indexPath.row]
+    cell.post = post
+    return cell
    }
 
 }
