@@ -11,13 +11,7 @@ import UIKit
 class FeedViewController: UIViewController {
 
     @IBOutlet weak var feedTableView: UITableView!
-    var mockData: [Post] = {
-       var meTube = Post(id: 0, name: "MeTube", tagline: "Stream videos for free!", votesCount: 25, commentsCount: 4)
-       var boogle = Post(id: 1, name: "Boogle", tagline: "Search anything!", votesCount: 1000, commentsCount: 50)
-       var meTunes = Post(id: 2, name: "meTunes", tagline: "Listen to any song!", votesCount: 25000, commentsCount: 590)
-
-       return [meTube, boogle, meTunes]
-    }()
+    var mockData: [Post] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
