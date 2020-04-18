@@ -3,6 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -110,6 +111,65 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RBe-6n-jMs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
+        </scene>
+        <!--Comments-->
+        <scene sceneID="Zwv-oE-dBV">
+            <objects>
+                <viewController storyboardIdentifier="commentsView" id="xix-Hz-aua" userLabel="Comments" customClass="CommentsViewController" customModule="ProductHunt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Ma-1M-RwU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aQ1-AG-7kT" userLabel="Comments Table View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="commentCell" rowHeight="125" id="KgP-xk-Qyh" customClass="CommentTableViewCell" customModule="ProductHunt" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="125"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KgP-xk-Qyh" id="rmJ-0d-hKT">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iWL-2J-zHo">
+                                                    <rect key="frame" x="15" y="15" width="345" height="95"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="iWL-2J-zHo" firstAttribute="top" secondItem="rmJ-0d-hKT" secondAttribute="top" constant="15" id="C9w-9x-RNJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="iWL-2J-zHo" secondAttribute="bottom" constant="15" id="CR3-3V-X9g"/>
+                                                <constraint firstItem="iWL-2J-zHo" firstAttribute="leading" secondItem="rmJ-0d-hKT" secondAttribute="leading" constant="15" id="djs-sH-h1z"/>
+                                                <constraint firstAttribute="trailing" secondItem="iWL-2J-zHo" secondAttribute="trailing" constant="15" id="wtw-Sz-6rD"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="commentTextView" destination="iWL-2J-zHo" id="qYf-8c-llZ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="aQ1-AG-7kT" firstAttribute="top" secondItem="x1D-IJ-rMM" secondAttribute="top" id="S2t-o6-Om2"/>
+                            <constraint firstItem="x1D-IJ-rMM" firstAttribute="trailing" secondItem="aQ1-AG-7kT" secondAttribute="trailing" id="bOu-fA-0H7"/>
+                            <constraint firstItem="x1D-IJ-rMM" firstAttribute="bottom" secondItem="aQ1-AG-7kT" secondAttribute="bottom" id="eeM-fE-FB8"/>
+                            <constraint firstItem="aQ1-AG-7kT" firstAttribute="leading" secondItem="x1D-IJ-rMM" secondAttribute="leading" id="mfM-pe-Rd7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="x1D-IJ-rMM"/>
+                    </view>
+                    <connections>
+                        <outlet property="commentsTableView" destination="aQ1-AG-7kT" id="RvT-wb-rP2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YB8-SI-ouC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1834" y="126"/>
         </scene>
     </scenes>
     <resources>
